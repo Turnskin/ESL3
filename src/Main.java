@@ -48,7 +48,7 @@ public class Main {
 
         try {
             if (api().isAlive(0)) {
-                System.out.println("Server is alive!");
+//                System.out.println("Server is alive!");
             } else {
                 System.out.println("Could not connect to the server...");
                 System.out.println("API error: " + api().getLastError());
@@ -116,9 +116,7 @@ public class Main {
         Item test = new Item();
         List<ESL> linkedEsLs = null;
         List<String> CsvTextList = null;
-        //test = api().getItem("ЦР123456789");
         int ItemsCount = api().getTotalNumberOfItems();
-        //System.out.println("Всего товаров в БД: "+ItemsCount);
         Limit LimitItemRange = new Limit();
         LimitItemRange.setNumberOfElements(ItemsCount);
         List<ItemESLLink> ttt = api().getAllLinks(LimitItemRange);
@@ -126,14 +124,11 @@ public class Main {
         List<Item> AllLinkedItem = new ArrayList<Item>();
         String ItemId = new String();
         for (ItemESLLink iter : ttt) {
-
             ItemId = iter.getItemIdList().get(0).toString();
             AllLinkedItemsId.add(ItemId);
-
         }
         AllLinkedItem.addAll(api().getItems(AllLinkedItemsId));
         ArrayList<ESL> EslToFlash = new ArrayList<ESL>();
-        //System.out.println(test.getItemProperties().get(26).getValue());
         List<String> AllDiscountItems = new ArrayList<String>();
         String itemID;
         String itemIPF = "";
@@ -154,15 +149,8 @@ public class Main {
                 ITEMIPF = i;
             }
         }
-//        for (int i = 0;i < SizeOfPropertiesList; i++) {
-//            if (test.getItemProperties().get(i).getId().getNumber().intValue() == 121) {
-//                ITEMIPF = i;
-//            }
-//        }
         for (Item iter : AllLinkedItem) {
             itemIPF = iter.getItemProperties().get(ITEMIPF).getValue();
-            //itemIPF = ITEMIPF.getNumber().intValue();
-            //System.out.println(itemIPF);
             if (itemIPFarg.equals(itemIPF.toString())) {
                 itemID = iter.getItemProperties().get(ITEMDPTIDREF).getValue();
                 linkedEsLs = api().getLinkedESLs(itemID);
@@ -174,7 +162,7 @@ public class Main {
             api().flashLedOn(iter.getBarcode(), timeToFlash, true, true);
         }
 //        try {
-//            CsvTextList = CsvToList("src/items.csv");
+//             CsvTextList = CsvToList("src/items.csv");
 //
 //            for (String rowFromCsv : CsvTextList) {
 //                ASize = rowFromCsv.length();

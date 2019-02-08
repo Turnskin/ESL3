@@ -6,7 +6,6 @@
  */
 package service;
 
-import com.sun.javafx.binding.StringFormatter;
 import ws.PricerPublicAPI50;
 import ws.PricerPublicAPI50_Service;
 
@@ -82,8 +81,8 @@ public class PublicAPI50Factory {
           headers.put(AUTHENTICATION_TOKEN_HEADER, Collections.singletonList(hash));
           req_ctx.put(MessageContext.HTTP_REQUEST_HEADERS, headers);
 
-          System.out.println(StringFormatter.format("Found server started at %s:%s with API user \"%s\" and API key \"%s\".",
-                  IP_ADDRESS, PORT, API_USER, API_KEY).getValue());
+//          System.out.println(StringFormatter.format("Found server started at %s:%s with API user \"%s\" and API key \"%s\".",
+//                  IP_ADDRESS, PORT, API_USER, API_KEY).getValue());
 //          System.out.println("Found server started at %s:%s with API user \"%s\" and API key \"%s\".");
 //          System.out.println(IP_ADDRESS + PORT + API_USER + API_KEY);
           return api50;
