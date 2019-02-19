@@ -118,7 +118,7 @@ public class Main {
         List<String> CsvTextList = null;
         int ItemsCount = api().getTotalNumberOfItems();
         Limit LimitItemRange = new Limit();
-        LimitItemRange.setNumberOfElements(10000);
+        LimitItemRange.setNumberOfElements(api().getNoOfESLs(0)+1);
         List<ItemESLLink> ttt = api().getAllLinks(LimitItemRange);
         List<String> AllLinkedItemsId = new ArrayList<String>();
         List<Item> AllLinkedItem = new ArrayList<Item>();
