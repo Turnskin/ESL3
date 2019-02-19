@@ -118,7 +118,7 @@ public class Main {
         List<String> CsvTextList = null;
         int ItemsCount = api().getTotalNumberOfItems();
         Limit LimitItemRange = new Limit();
-        LimitItemRange.setNumberOfElements(ItemsCount);
+        LimitItemRange.setNumberOfElements(10000);
         List<ItemESLLink> ttt = api().getAllLinks(LimitItemRange);
         List<String> AllLinkedItemsId = new ArrayList<String>();
         List<Item> AllLinkedItem = new ArrayList<Item>();
@@ -155,7 +155,7 @@ public class Main {
                 itemID = iter.getItemProperties().get(ITEMDPTIDREF).getValue();
                 linkedEsLs = api().getLinkedESLs(itemID);
                 EslToFlash.addAll(linkedEsLs);
-                // System.out.println("itemID: " + iter.getItemProperties().get(ITEMDPTIDREF).getValue() + " ESL to FLASH: " + linkedEsLs.get(0).getBarcode());
+                System.out.println("itemID: " + iter.getItemProperties().get(ITEMDPTIDREF).getValue() + " ESL to FLASH: " + linkedEsLs.get(0).getBarcode());
             }
         }
         for (ESL iter : EslToFlash) {
